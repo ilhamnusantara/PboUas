@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package Controller;
 
 /**
  *
  * @author ilham-07010
  */
-public class RokokElektronik extends Barang{
-
-    public RokokElektronik(String namaProduk, String jenisProduk) {
-        super(namaProduk, jenisProduk);
-    }
+public class ControllerPembelian {
     
 }

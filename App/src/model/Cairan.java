@@ -9,6 +9,12 @@ package model;
  *
  * @author ilham-07010
  */
-public class Cairan {
+public class Cairan extends Barang{
+
+    int volume;
+    public Cairan(String namaProduk, String jenisProduk,int volume) {
+        super(namaProduk, jenisProduk);
+        this.volume = volume;
+    }
     
 }

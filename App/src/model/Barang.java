@@ -9,6 +9,12 @@ package model;
  *
  * @author ilham-07010
  */
-public class Barang {
+abstract class Barang {
+    String namaProduk;
+    String jenisProduk;
     
+    public Barang(String namaProduk, String jenisProduk){
+        this.namaProduk = namaProduk;
+        this.jenisProduk = jenisProduk;
+    }
 }
