@@ -159,18 +159,8 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/khoirul-06990/Documents/PboUas/download (1).jpeg"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/khoirul-06990/Documents/PboUas/images.jpeg"/>
-            </Property>
-          </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="MainPanel">
 
