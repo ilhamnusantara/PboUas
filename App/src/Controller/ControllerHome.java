@@ -35,6 +35,10 @@ public class ControllerHome {
             {
                 Cmb.addItem(ControllerProduk.getFreebase().get(i).getNamaProduk());
             }
+            else if (L==ControllerProduk.getSaltnic())
+            {
+                Cmb.addItem(ControllerProduk.getSaltnic().get(i).getNamaProduk());
+            }
         }
         Cmb.repaint();
         Cmb.revalidate();

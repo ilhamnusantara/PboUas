@@ -6,11 +6,8 @@
 package frame;
 
 import Controller.ControllerHome;
-import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import Controller.ControllerProduk;
-import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 /**
  *

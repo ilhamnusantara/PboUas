@@ -103,5 +103,6 @@ public class ControllerProduk {
         AddMod();
         AddPod();
         AddFreeBase();
+        AddSaltNic();
     }
 }
