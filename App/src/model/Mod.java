@@ -9,10 +9,10 @@ package model;
  *
  * @author ilham-07010
  */
-public class Pod extends Vapor{
+public class Mod extends Vapor{
     private int harga;
     private int jumlahProduk;
-    public Pod(String namaProduk, String jenisProduk, int harga, int jumlahProduk) {
+    public Mod(String namaProduk, String jenisProduk, int harga, int jumlahProduk) {
         super(namaProduk, jenisProduk);
         this.harga = harga;
         this.jumlahProduk = jumlahProduk;
@@ -33,5 +33,6 @@ public class Pod extends Vapor{
     public String getJenisProduk() {
         return jenisProduk;
     }
+    
     
 }

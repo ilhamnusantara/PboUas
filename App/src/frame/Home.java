@@ -455,12 +455,12 @@ public class Home extends java.awt.Frame {
 
     private void VaporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VaporActionPerformed
         // TODO add your handling code here:
-//        if(Vapor.isSelected())
+//        if(Mod.isSelected())
 //        {
 //            Cmb.removeAllItems();
 //            Cmb.repaint();
 //            Cmb.revalidate();
-//            Cmb.addItem("Vapor");
+//            Cmb.addItem("Mod");
 //            Cmb.addItem("Pot");
 //            Cmb.repaint();
 //            Cmb.revalidate();
