@@ -23,9 +23,9 @@ public class ControllerHome {
         Cmb.revalidate();
         for (int i = 0; i<L.size(); i++)
         {
-            if (L==ControllerProduk.getVapor())
+            if (L==ControllerProduk.getMod())
             {
-                Cmb.addItem(ControllerProduk.getVapor().get(i).getNamaProduk());
+                Cmb.addItem(ControllerProduk.getMod().get(i).getNamaProduk());
             }
             else if (L==ControllerProduk.getPod())
             {

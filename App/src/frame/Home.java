@@ -31,9 +31,7 @@ public class Home extends java.awt.Frame {
         ControllerProduk.AddItems();
         IconStore.setIcon(ControllerHome.icon(100, 100));
     }
-    
-//   private static ImageIcon icon = new ImageIcon("/home/khoirul-06990/Documents/PboUas/download (1).jpeg");
-   
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -426,7 +424,7 @@ public class Home extends java.awt.Frame {
     }//GEN-LAST:event_ButtonPembelianActionPerformed
 
     private void VaporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VaporActionPerformed
-       ControllerHome. AddCmb(Cmb, ControllerProduk.getVapor());
+        ControllerHome.AddCmb(Cmb, ControllerProduk.getMod());
     }//GEN-LAST:event_VaporActionPerformed
 
     private void PodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PodActionPerformed
