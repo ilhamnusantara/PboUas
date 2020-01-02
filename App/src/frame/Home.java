@@ -5,6 +5,12 @@
  */
 package frame;
 
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import Controller.ControllerProduk;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author khoirul-06990
@@ -20,9 +26,38 @@ public class Home extends java.awt.Frame {
         MainPanel.repaint();
         MainPanel.revalidate();
         buttonGroupPembelian.add(Vapor);
-        buttonGroupPembelian.add(Pot);
+        buttonGroupPembelian.add(Pod);
+        buttonGroupPembelian.add(FreeBase);
+        buttonGroupPembelian.add(SaltNic);
+        ControllerProduk.AddItems();
     }
-
+    
+    private static void AddCmb(JComboBox Cmb, ArrayList L)
+    {
+        Cmb.removeAllItems();
+        Cmb.repaint();
+        Cmb.revalidate();
+        for (int i = 0; i<L.size(); i++)
+        {
+            if (L==ControllerProduk.getVapor())
+            {
+                Cmb.addItem(ControllerProduk.getVapor().get(i).getNamaProduk());
+            }
+            else if (L==ControllerProduk.getPod())
+            {
+                Cmb.addItem(ControllerProduk.getPod().get(i).getNamaProduk());
+            }
+            else if (L==ControllerProduk.getFreebase())
+            {
+                Cmb.addItem(ControllerProduk.getFreebase().get(i).getNamaProduk());
+            }
+        }
+        Cmb.repaint();
+        Cmb.revalidate();
+    }
+    
+   private static ImageIcon icon = new ImageIcon("/home/khoirul-06990/Documents/PboUas/download (1).jpeg");
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,12 +87,12 @@ public class Home extends java.awt.Frame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        fieldNamaPembeli = new javax.swing.JTextField();
         Vapor = new javax.swing.JRadioButton();
-        Pot = new javax.swing.JRadioButton();
+        Pod = new javax.swing.JRadioButton();
         Cmb = new javax.swing.JComboBox<>();
         Jumlah = new javax.swing.JSpinner();
-        FireBase = new javax.swing.JRadioButton();
+        FreeBase = new javax.swing.JRadioButton();
         SaltNic = new javax.swing.JRadioButton();
         Beli = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -109,7 +144,7 @@ public class Home extends java.awt.Frame {
                 .addComponent(ButtonData)
                 .addGap(36, 36, 36)
                 .addComponent(ButtonPembelian)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(254, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
@@ -183,7 +218,7 @@ public class Home extends java.awt.Frame {
 
         jLabel8.setText("Jenis");
 
-        jLabel9.setText("Barang / Merk");
+        jLabel9.setText("Nama Pembeli");
 
         jLabel10.setText("Jumlah");
 
@@ -194,16 +229,26 @@ public class Home extends java.awt.Frame {
             }
         });
 
-        Pot.setText("Pot");
-        Pot.addActionListener(new java.awt.event.ActionListener() {
+        Pod.setText("Pod");
+        Pod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PotActionPerformed(evt);
+                PodActionPerformed(evt);
             }
         });
 
-        FireBase.setText("FireBase");
+        FreeBase.setText("FreeBase");
+        FreeBase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FreeBaseActionPerformed(evt);
+            }
+        });
 
         SaltNic.setText("Salt Nic");
+        SaltNic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaltNicActionPerformed(evt);
+            }
+        });
 
         Beli.setText("Beli");
         Beli.addActionListener(new java.awt.event.ActionListener() {
@@ -224,6 +269,11 @@ public class Home extends java.awt.Frame {
 
         Cetak.setBackground(new java.awt.Color(53, 204, 118));
         Cetak.setText("Cetak");
+        Cetak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CetakActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelPembelianLayout = new javax.swing.GroupLayout(PanelPembelian);
         PanelPembelian.setLayout(PanelPembelianLayout);
@@ -239,22 +289,18 @@ public class Home extends java.awt.Frame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelPembelianLayout.createSequentialGroup()
-                        .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelPembelianLayout.createSequentialGroup()
-                                .addComponent(Vapor)
-                                .addGap(30, 30, 30)
-                                .addComponent(Pot)
-                                .addGap(28, 28, 28)
-                                .addComponent(FireBase)
-                                .addGap(27, 27, 27)
-                                .addComponent(SaltNic))
-                            .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(Cmb, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)))
-                        .addContainerGap(63, Short.MAX_VALUE))
-                    .addGroup(PanelPembelianLayout.createSequentialGroup()
-                        .addComponent(Jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(Vapor)
+                        .addGap(30, 30, 30)
+                        .addComponent(Pod)
+                        .addGap(28, 28, 28)
+                        .addComponent(FreeBase)
+                        .addGap(27, 27, 27)
+                        .addComponent(SaltNic))
+                    .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(Cmb, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(fieldNamaPembeli, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                    .addComponent(Jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(PanelPembelianLayout.createSequentialGroup()
                 .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelPembelianLayout.createSequentialGroup()
@@ -275,13 +321,13 @@ public class Home extends java.awt.Frame {
                 .addGap(48, 48, 48)
                 .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldNamaPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(Vapor)
-                    .addComponent(Pot)
-                    .addComponent(FireBase)
+                    .addComponent(Pod)
+                    .addComponent(FreeBase)
                     .addComponent(SaltNic))
                 .addGap(25, 25, 25)
                 .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -304,9 +350,9 @@ public class Home extends java.awt.Frame {
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGap(0, 642, Short.MAX_VALUE)
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(PanelData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,9 +360,9 @@ public class Home extends java.awt.Frame {
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 511, Short.MAX_VALUE)
+            .addGap(0, 537, Short.MAX_VALUE)
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(PanelData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,7 +380,7 @@ public class Home extends java.awt.Frame {
             .addGroup(PanelHomeLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(28, 28, 28))
             .addGroup(PanelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,35 +455,53 @@ public class Home extends java.awt.Frame {
 
     private void VaporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VaporActionPerformed
         // TODO add your handling code here:
-        if(Vapor.isSelected())
-        {
-            Cmb.removeAllItems();
-            Cmb.repaint();
-            Cmb.revalidate();
-            Cmb.addItem("Vapor");
-            Cmb.addItem("Pot");
-            Cmb.repaint();
-            Cmb.revalidate();
-        }
+//        if(Vapor.isSelected())
+//        {
+//            Cmb.removeAllItems();
+//            Cmb.repaint();
+//            Cmb.revalidate();
+//            Cmb.addItem("Vapor");
+//            Cmb.addItem("Pot");
+//            Cmb.repaint();
+//            Cmb.revalidate();
+//        }
+
+        AddCmb(Cmb, ControllerProduk.getVapor());
     }//GEN-LAST:event_VaporActionPerformed
 
-    private void PotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PotActionPerformed
+    private void PodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PodActionPerformed
         // TODO add your handling code here:
-        if(Pot.isSelected())
-        {
-            Cmb.removeAllItems();
-            Cmb.repaint();
-            Cmb.revalidate();
-            Cmb.addItem("Fire Base");
-            Cmb.addItem("Salt nic");
-            Cmb.repaint();
-            Cmb.revalidate();
-        }
-    }//GEN-LAST:event_PotActionPerformed
+//        if(Pot.isSelected())
+//        {
+//            Cmb.removeAllItems();
+//            Cmb.repaint();
+//            Cmb.revalidate();
+//            Cmb.addItem("Fire Base");
+//            Cmb.addItem("Salt nic");
+//            Cmb.repaint();
+//            Cmb.revalidate();
+//        }
+        AddCmb(Cmb, ControllerProduk.getPod());
+    }//GEN-LAST:event_PodActionPerformed
 
     private void BeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)Table.getModel();
     }//GEN-LAST:event_BeliActionPerformed
+
+    private void CetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CetakActionPerformed
+        JOptionPane.showMessageDialog(null, "test JOpitonPane", "coba", JOptionPane.INFORMATION_MESSAGE,icon );
+    }//GEN-LAST:event_CetakActionPerformed
+
+    private void FreeBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FreeBaseActionPerformed
+        // TODO add your handling code here:
+        AddCmb(Cmb, ControllerProduk.getFreebase());
+    }//GEN-LAST:event_FreeBaseActionPerformed
+
+    private void SaltNicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaltNicActionPerformed
+        // TODO add your handling code here:
+        AddCmb(Cmb, ControllerProduk.getSaltnic());
+    }//GEN-LAST:event_SaltNicActionPerformed
 
     /**
      * @param args the command line arguments
@@ -457,18 +521,19 @@ public class Home extends java.awt.Frame {
     private javax.swing.JButton ButtonPembelian;
     private javax.swing.JButton Cetak;
     private javax.swing.JComboBox<String> Cmb;
-    private javax.swing.JRadioButton FireBase;
+    private javax.swing.JRadioButton FreeBase;
     private javax.swing.JSpinner Jumlah;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel PanelData;
     private javax.swing.JPanel PanelHome;
     private javax.swing.JPanel PanelPembelian;
     private javax.swing.JPanel PanelProfil;
-    private javax.swing.JRadioButton Pot;
+    private javax.swing.JRadioButton Pod;
     private javax.swing.JRadioButton SaltNic;
     private javax.swing.JTable Table;
     private javax.swing.JRadioButton Vapor;
     private javax.swing.ButtonGroup buttonGroupPembelian;
+    private javax.swing.JTextField fieldNamaPembeli;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -483,6 +548,5 @@ public class Home extends java.awt.Frame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
