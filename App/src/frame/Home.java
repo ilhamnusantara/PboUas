@@ -5,6 +5,7 @@
  */
 package frame;
 
+import Controller.ControllerHome;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -22,41 +23,16 @@ public class Home extends java.awt.Frame {
      */
     public Home() {
         initComponents();
-        MainPanel.removeAll();
-        MainPanel.repaint();
-        MainPanel.revalidate();
+        ControllerHome.RemovePanel(MainPanel);
         buttonGroupPembelian.add(Vapor);
         buttonGroupPembelian.add(Pod);
         buttonGroupPembelian.add(FreeBase);
         buttonGroupPembelian.add(SaltNic);
         ControllerProduk.AddItems();
+        IconStore.setIcon(ControllerHome.icon(100, 100));
     }
     
-    private static void AddCmb(JComboBox Cmb, ArrayList L)
-    {
-        Cmb.removeAllItems();
-        Cmb.repaint();
-        Cmb.revalidate();
-        for (int i = 0; i<L.size(); i++)
-        {
-            if (L==ControllerProduk.getVapor())
-            {
-                Cmb.addItem(ControllerProduk.getVapor().get(i).getNamaProduk());
-            }
-            else if (L==ControllerProduk.getPod())
-            {
-                Cmb.addItem(ControllerProduk.getPod().get(i).getNamaProduk());
-            }
-            else if (L==ControllerProduk.getFreebase())
-            {
-                Cmb.addItem(ControllerProduk.getFreebase().get(i).getNamaProduk());
-            }
-        }
-        Cmb.repaint();
-        Cmb.revalidate();
-    }
-    
-   private static ImageIcon icon = new ImageIcon("/home/khoirul-06990/Documents/PboUas/download (1).jpeg");
+//   private static ImageIcon icon = new ImageIcon("/home/khoirul-06990/Documents/PboUas/download (1).jpeg");
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,6 +47,7 @@ public class Home extends java.awt.Frame {
         jLabel1 = new javax.swing.JLabel();
         ButtonData = new javax.swing.JButton();
         ButtonPembelian = new javax.swing.JButton();
+        IconStore = new javax.swing.JLabel();
         PanelHome = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -128,23 +105,30 @@ public class Home extends java.awt.Frame {
         PanelProfilLayout.setHorizontalGroup(
             PanelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelProfilLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(PanelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ButtonPembelian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ButtonData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(PanelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelProfilLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(PanelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ButtonPembelian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(PanelProfilLayout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(IconStore)))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         PanelProfilLayout.setVerticalGroup(
             PanelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelProfilLayout.createSequentialGroup()
-                .addGap(137, 137, 137)
+                .addGap(62, 62, 62)
+                .addComponent(IconStore)
+                .addGap(58, 58, 58)
                 .addComponent(jLabel1)
                 .addGap(35, 35, 35)
                 .addComponent(ButtonData)
                 .addGap(36, 36, 36)
                 .addComponent(ButtonPembelian)
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(271, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
@@ -432,56 +416,21 @@ public class Home extends java.awt.Frame {
     }//GEN-LAST:event_exitForm
 
     private void ButtonDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDataActionPerformed
-        // TODO add your handling code here:
-        PanelHome.removeAll();
-        PanelHome.repaint();
-        PanelHome.revalidate();
-        
-        PanelHome.add(PanelData);
-        PanelHome.repaint();
-        PanelHome.revalidate();
+        ControllerHome.RemovePanel(PanelHome);
+        ControllerHome.AddPanel(PanelHome, PanelData);
     }//GEN-LAST:event_ButtonDataActionPerformed
 
     private void ButtonPembelianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPembelianActionPerformed
-        // TODO add your handling code here
-        PanelHome.removeAll();
-        PanelHome.repaint();
-        PanelHome.revalidate();
-        
-        PanelHome.add(PanelPembelian);
-        PanelHome.repaint();
-        PanelHome.revalidate();
+        ControllerHome.RemovePanel(PanelHome);
+        ControllerHome.AddPanel(PanelHome, PanelPembelian);
     }//GEN-LAST:event_ButtonPembelianActionPerformed
 
     private void VaporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VaporActionPerformed
-        // TODO add your handling code here:
-//        if(Vapor.isSelected())
-//        {
-//            Cmb.removeAllItems();
-//            Cmb.repaint();
-//            Cmb.revalidate();
-//            Cmb.addItem("Vapor");
-//            Cmb.addItem("Pot");
-//            Cmb.repaint();
-//            Cmb.revalidate();
-//        }
-
-        AddCmb(Cmb, ControllerProduk.getVapor());
+       ControllerHome. AddCmb(Cmb, ControllerProduk.getVapor());
     }//GEN-LAST:event_VaporActionPerformed
 
     private void PodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PodActionPerformed
-        // TODO add your handling code here:
-//        if(Pot.isSelected())
-//        {
-//            Cmb.removeAllItems();
-//            Cmb.repaint();
-//            Cmb.revalidate();
-//            Cmb.addItem("Fire Base");
-//            Cmb.addItem("Salt nic");
-//            Cmb.repaint();
-//            Cmb.revalidate();
-//        }
-        AddCmb(Cmb, ControllerProduk.getPod());
+        ControllerHome. AddCmb(Cmb, ControllerProduk.getPod());
     }//GEN-LAST:event_PodActionPerformed
 
     private void BeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliActionPerformed
@@ -490,17 +439,17 @@ public class Home extends java.awt.Frame {
     }//GEN-LAST:event_BeliActionPerformed
 
     private void CetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CetakActionPerformed
-        JOptionPane.showMessageDialog(null, "test JOpitonPane", "coba", JOptionPane.INFORMATION_MESSAGE,icon );
+        JOptionPane.showMessageDialog(null, "test JOpitonPane", "coba", JOptionPane.INFORMATION_MESSAGE,ControllerHome.icon(50, 50) );
     }//GEN-LAST:event_CetakActionPerformed
 
     private void FreeBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FreeBaseActionPerformed
         // TODO add your handling code here:
-        AddCmb(Cmb, ControllerProduk.getFreebase());
+        ControllerHome.AddCmb(Cmb, ControllerProduk.getFreebase());
     }//GEN-LAST:event_FreeBaseActionPerformed
 
     private void SaltNicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaltNicActionPerformed
         // TODO add your handling code here:
-        AddCmb(Cmb, ControllerProduk.getSaltnic());
+        ControllerHome.AddCmb(Cmb, ControllerProduk.getSaltnic());
     }//GEN-LAST:event_SaltNicActionPerformed
 
     /**
@@ -522,6 +471,7 @@ public class Home extends java.awt.Frame {
     private javax.swing.JButton Cetak;
     private javax.swing.JComboBox<String> Cmb;
     private javax.swing.JRadioButton FreeBase;
+    private javax.swing.JLabel IconStore;
     private javax.swing.JSpinner Jumlah;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel PanelData;
