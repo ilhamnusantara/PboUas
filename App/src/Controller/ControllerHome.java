@@ -16,6 +16,8 @@ import javax.swing.ImageIcon;
  * @author khoirul-06990
  */
 public class ControllerHome {
+    private static String namaJrButton;
+    
     public static void AddCmb(JComboBox Cmb, ArrayList L)
     {
         Cmb.removeAllItems();
@@ -65,5 +67,19 @@ public class ControllerHome {
        Image newimg = img.getScaledInstance(width, heigth, java.awt.Image.SCALE_SMOOTH);
        icon = new ImageIcon(newimg);
        return icon;
+    }
+    
+//    public static String nameJrSelected(ButtonGroup button, JRadioButton)
+//    {
+//        String name = null;
+//        return name;
+//    } 
+
+    public static String getNamaJrButton() {
+        return namaJrButton;
+    }
+
+    public static void setNamaJrButton(String nama) {
+        namaJrButton = nama;
     }
 }

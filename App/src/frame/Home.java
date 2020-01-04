@@ -5,9 +5,8 @@
  */
 package frame;
 
-import Controller.ControllerHome;
+import Controller.*;
 import javax.swing.JOptionPane;
-import Controller.ControllerProduk;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -422,15 +421,35 @@ public class Home extends java.awt.Frame {
 
     private void VaporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VaporActionPerformed
         ControllerHome.AddCmb(Cmb, ControllerProduk.getMod());
+        ControllerHome.setNamaJrButton(Vapor.getText());
     }//GEN-LAST:event_VaporActionPerformed
 
     private void PodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PodActionPerformed
         ControllerHome. AddCmb(Cmb, ControllerProduk.getPod());
+        ControllerHome.setNamaJrButton(Pod.getText());
     }//GEN-LAST:event_PodActionPerformed
 
     private void BeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel)Table.getModel();
+//        if(Vapor.isSelected())
+//        {
+//            
+//        }
+//        else if(Pod.isSelected())
+//        {
+//            
+//        }
+//        else if(FreeBase.isSelected())
+//        {
+//            
+//        }
+//        else if(SaltNic.isSelected())
+//        {
+//            
+//        }
+        ControllerPembelian.Add(ControllerHome.getNamaJrButton(), fieldNamaPembeli.getText(), (String)Cmb.getSelectedItem(), (Integer)Jumlah.getValue());
+        ControllerPembelian.AddTablePembelian(Table);
+        System.out.println(Table.getRowCount());
+        System.out.println(Table.getValueAt(0, 1));
     }//GEN-LAST:event_BeliActionPerformed
 
     private void CetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CetakActionPerformed
@@ -440,11 +459,13 @@ public class Home extends java.awt.Frame {
     private void FreeBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FreeBaseActionPerformed
         // TODO add your handling code here:
         ControllerHome.AddCmb(Cmb, ControllerProduk.getFreebase());
+        ControllerHome.setNamaJrButton(FreeBase.getText());
     }//GEN-LAST:event_FreeBaseActionPerformed
 
     private void SaltNicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaltNicActionPerformed
         // TODO add your handling code here:
         ControllerHome.AddCmb(Cmb, ControllerProduk.getSaltnic());
+        ControllerHome.setNamaJrButton(SaltNic.getText());
     }//GEN-LAST:event_SaltNicActionPerformed
 
     /**

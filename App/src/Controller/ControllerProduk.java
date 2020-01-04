@@ -78,26 +78,6 @@ public class ControllerProduk {
         saltnic.add(new SaltNic("Coffe Culture", "saltnic", 60, 100000, 6));
     }
     
-//    public static String getItemVapor(int index)
-//    {
-//        return vapor.get(index).getNamaProduk();
-//    }
-//    
-//    public static String getItemFreeBase(int index)
-//    {
-//        return freebase.get(index).getNamaProduk();
-//    }
-//    
-//    public static String getItemPod(int index)
-//    {
-//        return pod.get(index).getNamaProduk();
-//    }
-//    
-//    public static void getItemSaltNic(int index)
-//    {
-//        saltnic.get(index).getNamaProduk();
-//    }
-    
     public static void AddItems()
     {
         AddMod();
