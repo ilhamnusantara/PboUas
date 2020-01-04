@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -44,6 +46,40 @@ public class ControllerHome {
         }
         Cmb.repaint();
         Cmb.revalidate();
+    }
+    
+    public static void addTbl(JTable tblData, String produk){
+//        Mod, Pod, Liquid FireBase, Liquid Saltnic
+        tblData.removeEditor();
+        tblData.repaint();
+        tblData.revalidate();
+        DefaultTableModel view = (DefaultTableModel)tblData.getModel();
+        for(int i = 0; i<6; i++){
+            if(produk=="Mod"){
+               view.addRow(new Object[]{ControllerProduk.getMod().get(i).getNamaProduk(),
+               ControllerProduk.getMod().get(i).getJenisProduk(),
+               ControllerProduk.getMod().get(i).getHarga(),
+               ControllerProduk.getMod().get(i).getJumlahProduk()});
+            }else if(produk=="Pod"){
+               view.addRow(new Object[]{ControllerProduk.getPod().get(i).getNamaProduk(),
+               ControllerProduk.getPod().get(i).getJenisProduk(),
+               ControllerProduk.getPod().get(i).getHarga(),
+               ControllerProduk.getPod().get(i).getJumlahProduk()}); 
+            }else if(produk=="Liquid FreeBase"){
+               view.addRow(new Object[]{ControllerProduk.getFreebase().get(i).getNamaProduk(),
+               ControllerProduk.getFreebase().get(i).getJenisProduk(),
+               ControllerProduk.getFreebase().get(i).getHarga(),
+               ControllerProduk.getFreebase().get(i).getJumlahProduk()}); 
+            }else if(produk=="Liquid Saltnic"){
+               view.addRow(new Object[]{ControllerProduk.getSaltnic().get(i).getNamaProduk(),
+               ControllerProduk.getSaltnic().get(i).getJenisProduk(),
+               ControllerProduk.getSaltnic().get(i).getHarga(),
+               ControllerProduk.getSaltnic().get(i).getJumlahProduk()});  
+            }
+        }
+        tblData.repaint();
+        tblData.revalidate();
+        
     }
     
     public static void RemovePanel(JPanel panel)
