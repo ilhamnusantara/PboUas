@@ -33,6 +33,15 @@ public class ControllerPembelian {
     {
         int harga = 0;
         switch (button) {
+            case "Vapor":
+                for(int i = 0; i<ControllerProduk.getMod().size(); i++)
+                {
+                    if(ControllerProduk.getMod().get(i).getNamaProduk().equals(jenis))
+                    {
+                        harga = ControllerProduk.getMod().get(i).getHarga();
+                        break;
+                    }
+                }   break;
             case "Pod":
                 for(int i = 0; i<ControllerProduk.getPod().size(); i++)
                 {
