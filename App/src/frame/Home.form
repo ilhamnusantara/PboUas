@@ -367,7 +367,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="Vapor" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Mod" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="Pod" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
@@ -414,7 +414,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="Vapor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Mod" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Pod" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="FreeBase" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="SaltNic" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -463,12 +463,12 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="fieldNamaPembeli">
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="Vapor">
+                <Component class="javax.swing.JRadioButton" name="Mod">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Vapor"/>
+                    <Property name="text" type="java.lang.String" value="Mod"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VaporActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="Pod">

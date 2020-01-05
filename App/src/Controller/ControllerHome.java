@@ -50,10 +50,11 @@ public class ControllerHome {
     
     public static void addTbl(JTable tblData, String produk){
 //        Mod, Pod, Liquid FireBase, Liquid Saltnic
-        tblData.removeEditor();
-        tblData.repaint();
-        tblData.revalidate();
+//        tblData.removeEditor();
+//        tblData.repaint();
+//        tblData.revalidate();
         DefaultTableModel view = (DefaultTableModel)tblData.getModel();
+        view.setRowCount(0);
         for(int i = 0; i<6; i++){
             if(produk=="Mod"){
                view.addRow(new Object[]{ControllerProduk.getMod().get(i).getNamaProduk(),
@@ -77,8 +78,8 @@ public class ControllerHome {
                ControllerProduk.getSaltnic().get(i).getJumlahProduk()});  
             }
         }
-        tblData.repaint();
-        tblData.revalidate();
+//        tblData.repaint();
+//        tblData.revalidate();
         
     }
     

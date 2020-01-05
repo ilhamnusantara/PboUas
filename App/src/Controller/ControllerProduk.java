@@ -85,4 +85,16 @@ public class ControllerProduk {
         AddFreeBase();
         AddSaltNic();
     }
+    
+    public static void setSaltNic(int index, int jual)
+    {
+        int jumlah = saltnic.get(index).getJumlahProduk()-jual;
+        saltnic.set(index, new SaltNic(saltnic.get(index).getNamaProduk(), saltnic.get(index).getJenisProduk(), saltnic.get(index).getVolume(), saltnic.get(index).getHarga(), jumlah));
+    }
+    
+//    public static void setFreeBase(int index)
+    public static void updateData(ArrayList list, int index, String name, String jenis, int ml, int harga, int stok)
+    {
+        list.set(index, name);
+    }
 }

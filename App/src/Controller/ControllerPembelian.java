@@ -33,7 +33,7 @@ public class ControllerPembelian {
     {
         int harga = 0;
         switch (button) {
-            case "Vapor":
+            case "Mod":
                 for(int i = 0; i<ControllerProduk.getMod().size(); i++)
                 {
                     if(ControllerProduk.getMod().get(i).getNamaProduk().equals(jenis))
@@ -60,7 +60,7 @@ public class ControllerPembelian {
                         break;
                     }
                 }   break;
-            case "SaltNic":
+            case "Salt Nic":
                 for(int i = 0; i<ControllerProduk.getSaltnic().size(); i++)
                 {
                     if(ControllerProduk.getSaltnic().get(i).getNamaProduk().equals(jenis))
