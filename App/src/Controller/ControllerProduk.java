@@ -85,4 +85,36 @@ public class ControllerProduk {
         AddFreeBase();
         AddSaltNic();
     }
+    
+//    public static void updateQty(ArrayList list, int index, String jenis,int volume, int harga, int Qty)
+//    {
+//        if(list.equals(freebase))
+//        {
+//            freebase.set(index, new Freebase(jenis, "freebase", volume, harga, Qty));
+//        }
+//        else if(list.equals(saltnic))
+//        {
+//            saltnic.set(index, new SaltNic(jenis, "saltnic", volume, harga, Qty));
+//        }
+//    }
+    
+    public static void updateQty(String list, int index, int Qty)
+    {
+        switch (list) {
+            case "Mod":
+                mod.set(index, new Mod(mod.get(index).getNamaProduk(), "mod",mod.get(index).getHarga(), mod.get(index).getJumlahProduk()-Qty));
+                break;
+            case "Pod":
+                pod.set(index, new Pod(pod.get(index).getNamaProduk(), "pod", pod.get(index).getHarga(), pod.get(index).getJumlahProduk()-Qty));
+                break;
+            case "FreeBase":
+                freebase.set(index, new Freebase(freebase.get(index).getNamaProduk(), "freebase", freebase.get(index).getVolume(), freebase.get(index).getHarga(), freebase.get(index).getJumlahProduk()-Qty));
+                break;
+            case "SaltNic":
+                saltnic.set(index, new SaltNic(saltnic.get(index).getNamaProduk(), "saltnic", saltnic.get(index).getVolume(), freebase.get(index).getHarga(), saltnic.get(index).getJumlahProduk()-Qty));
+                break;
+            default:
+                break;
+        }
+    }
 }

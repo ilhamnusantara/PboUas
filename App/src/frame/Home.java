@@ -434,51 +434,63 @@ public class Home extends java.awt.Frame {
 
     private void VaporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VaporActionPerformed
         ControllerHome.AddCmb(Cmb, ControllerProduk.getMod());
-        ControllerHome.setNamaJrButton(Vapor.getText());
+//        ControllerHome.setNamaJrButton(Vapor.getText());
+        Vapor.setActionCommand("Mod");
     }//GEN-LAST:event_VaporActionPerformed
 
     private void PodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PodActionPerformed
         ControllerHome. AddCmb(Cmb, ControllerProduk.getPod());
-        ControllerHome.setNamaJrButton(Pod.getText());
+//        ControllerHome.setNamaJrButton(Pod.getText());
+        Pod.setActionCommand("Pod");
     }//GEN-LAST:event_PodActionPerformed
 
     private void BeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliActionPerformed
-//        if(Vapor.isSelected())
-//        {
-//            
-//        }
-//        else if(Pod.isSelected())
-//        {
-//            
-//        }
-//        else if(FreeBase.isSelected())
-//        {
-//            
-//        }
-//        else if(SaltNic.isSelected())
-//        {
-//            
-//        }
-        ControllerPembelian.Add(ControllerHome.getNamaJrButton(), fieldNamaPembeli.getText(), (String)Cmb.getSelectedItem(), (Integer)Jumlah.getValue());
+        ControllerPembelian.Add(buttonGroupPembelian.getSelection().getActionCommand(), fieldNamaPembeli.getText(), (String)Cmb.getSelectedItem(), (Integer)Jumlah.getValue());
         ControllerPembelian.AddTablePembelian(Table);
-        System.out.println(Table.getRowCount());
-        System.out.println(Table.getValueAt(0, 1));
+        ControllerHome.addRadioName(buttonGroupPembelian);
+//        System.out.println(Table.getRowCount());
+//        System.out.println(Table.getValueAt(0, 1));
+//        for(int i=0; i<ControllerProduk.getMod().size(); i++)
+//        {
+//            System.out.println(ControllerProduk.getMod().get(i).getNamaProduk());
+//        }
+//        System.out.println(buttonGroupPembelian.getSelection().getActionCommand());
+//        System.out.println(Table.getValueAt(0, 1));
+        
     }//GEN-LAST:event_BeliActionPerformed
 
     private void CetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CetakActionPerformed
-        JOptionPane.showMessageDialog(null, "test JOpitonPane", "coba", JOptionPane.INFORMATION_MESSAGE,ControllerHome.icon(50, 50) );
+//        JOptionPane.showMessageDialog(null, "test JOpitonPane", "coba", JOptionPane.INFORMATION_MESSAGE,ControllerHome.icon(50, 50) );
+//        ControllerHome.update(Table, (Integer)Jumlah.getValue());
+//        System.out.println(ControllerHome.index(buttonGroupPembelian.getSelection().getActionCommand(), Table));
+//        for(int i=0; i<Table.getRowCount(); i++)
+//        {
+//            System.out.println(Table.getValueAt(i, 1));
+//        }ArrayIndexOutOfBoundsException
+        try{
+            JOptionPane.showMessageDialog(null, "test JOpitonPane", "coba", JOptionPane.INFORMATION_MESSAGE,ControllerHome.icon(50, 50) );
+            ControllerHome.update(Table, (Integer)Jumlah.getValue());
+        }catch(ArrayIndexOutOfBoundsException e)
+        {
+            if(e.equals(-1))
+            {
+                System.out.println("index di luar jangkauan");
+            }
+        }
     }//GEN-LAST:event_CetakActionPerformed
 
     private void FreeBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FreeBaseActionPerformed
         // TODO add your handling code here:
         ControllerHome.AddCmb(Cmb, ControllerProduk.getFreebase());
-        ControllerHome.setNamaJrButton(FreeBase.getText());
+//        ControllerHome.setNamaJrButton(FreeBase.getText());
+        FreeBase.setActionCommand("FreeBase");
     }//GEN-LAST:event_FreeBaseActionPerformed
 
     private void SaltNicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaltNicActionPerformed
         // TODO add your handling code here:
         ControllerHome.AddCmb(Cmb, ControllerProduk.getSaltnic());
-        ControllerHome.setNamaJrButton(SaltNic.getText());
+//        ControllerHome.setNamaJrButton(SaltNic.getText());
+        SaltNic.setActionCommand("SaltNic");
     }//GEN-LAST:event_SaltNicActionPerformed
 
     private void comboProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboProdukActionPerformed

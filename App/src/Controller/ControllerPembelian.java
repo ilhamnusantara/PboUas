@@ -6,7 +6,6 @@
 package Controller;
 
 import java.util.ArrayList;
-import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import model.Pembelian;
@@ -33,7 +32,7 @@ public class ControllerPembelian {
     {
         int harga = 0;
         switch (button) {
-            case "Vapor":
+            case "Mod":
                 for(int i = 0; i<ControllerProduk.getMod().size(); i++)
                 {
                     if(ControllerProduk.getMod().get(i).getNamaProduk().equals(jenis))
@@ -93,4 +92,9 @@ public class ControllerPembelian {
     {
         beli.clear();
     }
+
+    public static ArrayList<Pembelian> getBeli() {
+        return beli;
+    }
+    
 }

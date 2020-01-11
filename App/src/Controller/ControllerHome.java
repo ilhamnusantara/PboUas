@@ -7,9 +7,11 @@ package Controller;
 
 import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author khoirul-06990
  */
 public class ControllerHome {
-    private static String namaJrButton;
+    private static ArrayList<String> radioName = new ArrayList<>();
     
     public static void AddCmb(JComboBox Cmb, ArrayList L)
     {
@@ -105,17 +107,104 @@ public class ControllerHome {
        return icon;
     }
     
+    public static void addRadioName(ButtonGroup group)
+    {
+        radioName.add(group.getSelection().getActionCommand());
+    }
+    
+//    public static ArrayList<String> getRadioName() {
+//        return radioName;
+//    }
+    
+    // cari index produk dari tabel pembelian
+    public static int index(String nameButton, JTable table, int awal)
+    {
+        int Index = -1;
+        for(int i=awal; i<table.getRowCount(); i++)
+         {
+            String jenis = (String)table.getValueAt(i, 1);
+            switch (nameButton) {
+                case "Mod":
+                    for(int x=0; x<ControllerProduk.getMod().size(); x++)
+                    {
+                        if(jenis.equals(ControllerProduk.getMod().get(i).getNamaProduk()))
+                        {
+                            Index = x;
+                            break;
+                        }
+                    }
+                    break;
+                case "Pod":
+                    for(int x=0; x<ControllerProduk.getPod().size(); x++)
+                    {
+                        if(jenis.equals(ControllerProduk.getPod().get(i).getNamaProduk()))
+                        {
+                            Index = x;
+                            break;
+                        }
+                    }
+                    break;
+                case "FreeBase":
+                    for(int x=0; x<ControllerProduk.getFreebase().size(); x++)
+                    {
+                        if(jenis.equals(ControllerProduk.getFreebase().get(i).getNamaProduk()))
+                        {
+                            Index = x;
+                            break;
+                        }
+                    }
+                    break;
+                case "SaltNic":
+                    for(int x=0; x<ControllerProduk.getSaltnic().size(); x++)
+                    {
+                        if(jenis.equals(ControllerProduk.getSaltnic().get(i).getNamaProduk()))
+                        {
+                            Index = x;
+                            break;
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        return Index;
+    }
+    
+    public static void update(JTable table, int beli)
+    {
+        int banyakData = table.getRowCount();
+        for(int i=0; i<banyakData; i++)
+        {
+            ControllerProduk.updateQty(radioName.get(i), index(radioName.get(i), table, i), beli);
+        }
+    }
 //    public static String nameJrSelected(ButtonGroup button, JRadioButton)
 //    {
 //        String name = null;
 //        return name;
 //    } 
 
-    public static String getNamaJrButton() {
-        return namaJrButton;
-    }
+//    public static void remove(ButtonGroup group)
+//    {
+//        switch (group.getSelection().getActionCommand()) {
+//            case "Mod":
+//                break;
+//            case "Pod":
+//                break;
+//            case "FreeBase":
+//                break;
+//            case "SaltNic":
+//                break;
+//            default:
+//                break;
+//        }
+//    }
+//    
+//    public static String index()
+//    {
+//        
+//    }
 
-    public static void setNamaJrButton(String nama) {
-        namaJrButton = nama;
-    }
+
 }
