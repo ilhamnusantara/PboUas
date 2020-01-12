@@ -49,7 +49,7 @@ public class ControllerProduk {
     private static  void AddPod()
     {
         pod.add(new Pod("Juul", "pod", 585000, 5));
-        pod.add(new Pod("Last Vape Onion DNA", "pod", 884000, 5));
+        pod.add(new Pod("Last Vape DNA", "pod", 884000, 5));
         pod.add(new Pod("SMOK Infinix", "pod", 190000, 5));
         pod.add(new Pod("SMOK Nord", "pod", 175000, 5));
         pod.add(new Pod("Uwell Caliburn", "pod" ,160000, 5));

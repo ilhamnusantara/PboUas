@@ -70,6 +70,10 @@ public class Home extends java.awt.Frame {
         jScrollPane2 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
         Cetak = new javax.swing.JButton();
+        pembayaran = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Struk = new javax.swing.JTextArea();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -266,45 +270,63 @@ public class Home extends java.awt.Frame {
             }
         });
 
+        pembayaran.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pembayaranActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Total Pembayaran");
+
+        Struk.setColumns(20);
+        Struk.setRows(5);
+        jScrollPane3.setViewportView(Struk);
+
         javax.swing.GroupLayout PanelPembelianLayout = new javax.swing.GroupLayout(PanelPembelian);
         PanelPembelian.setLayout(PanelPembelianLayout);
         PanelPembelianLayout.setHorizontalGroup(
             PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPembelianLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PanelPembelianLayout.createSequentialGroup()
-                        .addComponent(Mod)
-                        .addGap(30, 30, 30)
-                        .addComponent(Pod)
-                        .addGap(28, 28, 28)
-                        .addComponent(FreeBase)
-                        .addGap(27, 27, 27)
-                        .addComponent(SaltNic))
-                    .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(Cmb, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(fieldNamaPembeli, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
-                    .addComponent(Jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PanelPembelianLayout.createSequentialGroup()
-                .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelPembelianLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel10))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelPembelianLayout.createSequentialGroup()
+                                        .addComponent(Mod)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(Pod)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(FreeBase)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(SaltNic))
+                                    .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(Cmb, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(fieldNamaPembeli, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                                    .addComponent(Jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(PanelPembelianLayout.createSequentialGroup()
+                                .addGap(219, 219, 219)
+                                .addComponent(Beli, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30))
                     .addGroup(PanelPembelianLayout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(Beli, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelPembelianLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPembelianLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Cetak)
-                .addGap(56, 56, 56))
+                        .addContainerGap()
+                        .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Cetak)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PanelPembelianLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
         );
         PanelPembelianLayout.setVerticalGroup(
             PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,35 +335,45 @@ public class Home extends java.awt.Frame {
                 .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(fieldNamaPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(Mod)
-                    .addComponent(Pod)
-                    .addComponent(FreeBase)
-                    .addComponent(SaltNic))
-                .addGap(25, 25, 25)
-                .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Cmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(23, 23, 23)
-                .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(Jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(Beli)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Cetak)
-                .addGap(19, 19, 19))
+                .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelPembelianLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(Mod)
+                            .addComponent(Pod)
+                            .addComponent(FreeBase)
+                            .addComponent(SaltNic))
+                        .addGap(25, 25, 25)
+                        .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Cmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addGap(23, 23, 23)
+                        .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(Jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addComponent(Beli)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(18, 18, 18)
+                        .addComponent(Cetak)
+                        .addGap(30, 30, 30))
+                    .addGroup(PanelPembelianLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3)
+                        .addGap(66, 66, 66))))
         );
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 856, Short.MAX_VALUE)
+            .addGap(0, 1077, Short.MAX_VALUE)
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -445,14 +477,16 @@ public class Home extends java.awt.Frame {
     private void BeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliActionPerformed
 
         ControllerPembelian.Add(ControllerHome.getNamaJrButton(), fieldNamaPembeli.getText(), (String)Cmb.getSelectedItem(), (Integer)Jumlah.getValue());
-        ControllerPembelian.AddTablePembelian(Table);
+        ControllerPembelian.AddTablePembelian(Table,pembayaran);
         System.out.println(Table.getRowCount());
         System.out.println(Table.getValueAt(0, 1));
+//        pembayaran.getText((String)ControllerPembelian.PendapatanHari(Table));
     }//GEN-LAST:event_BeliActionPerformed
 
     private void CetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CetakActionPerformed
-        JOptionPane.showMessageDialog(null, "test JOpitonPane", "coba", JOptionPane.INFORMATION_MESSAGE,ControllerHome.icon(50, 50) );
-        ControllerProduk.setSaltNic(1, (Integer)Jumlah.getValue());
+   //     JOptionPane.showMessageDialog(null, "test JOpitonPane", "coba", JOptionPane.INFORMATION_MESSAGE,ControllerHome.icon(50, 50) );
+     //   ControllerProduk.setSaltNic(1, (Integer)Jumlah.getValue());
+        ControllerPembelian.StrukPembelian(Struk,pembayaran.getText());
     }//GEN-LAST:event_CetakActionPerformed
 
     private void FreeBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FreeBaseActionPerformed
@@ -472,6 +506,10 @@ public class Home extends java.awt.Frame {
           ControllerHome.addTbl(tblData,(String)comboProduk.getSelectedItem());
         System.out.println((String)comboProduk.getSelectedItem());
     }//GEN-LAST:event_comboProdukActionPerformed
+
+    private void pembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pembayaranActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pembayaranActionPerformed
 
     /**
      * @param args the command line arguments
@@ -502,6 +540,7 @@ public class Home extends java.awt.Frame {
     private javax.swing.JPanel PanelProfil;
     private javax.swing.JRadioButton Pod;
     private javax.swing.JRadioButton SaltNic;
+    private javax.swing.JTextArea Struk;
     private javax.swing.JTable Table;
     private javax.swing.ButtonGroup buttonGroupPembelian;
     private javax.swing.JComboBox<String> comboProduk;
@@ -513,12 +552,15 @@ public class Home extends java.awt.Frame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField pembayaran;
     private javax.swing.JTable tblData;
     // End of variables declaration//GEN-END:variables
 }

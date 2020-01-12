@@ -8,6 +8,8 @@ package Controller;
 import java.util.ArrayList;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 import model.Pembelian;
 
@@ -17,7 +19,7 @@ import model.Pembelian;
  */
 public class ControllerPembelian {
     private static ArrayList<Pembelian> beli =  new  ArrayList<>();
-    
+    private static ArrayList<Integer> pembelian = new ArrayList<>();
     public static void Add(String button, String nama, String jenis, int jumlah)
     {
         beli.add(new Pembelian(nama, jenis, jumlah, Harga(button, jenis), Harga(button, jenis)*jumlah));
@@ -75,7 +77,7 @@ public class ControllerPembelian {
         return harga;
     }
     
-    public static void AddTablePembelian(JTable table)
+    public static void AddTablePembelian(JTable table, JTextField field)
     {
         DefaultTableModel model = (DefaultTableModel)table.getModel();
         model.setRowCount(0);
@@ -86,9 +88,31 @@ public class ControllerPembelian {
                 beli.get(i).getJumlah(),
                 beli.get(i).getHarga(),
                 beli.get(i).getTotal()});
+            field.setText((String.valueOf(PendapatanHari(table))));
         }
     }
     
+    public static int PendapatanHari(JTable table){
+        int pendapatan = 0;
+        for(int i = 0; i<table.getRowCount(); i++){
+            pendapatan = pendapatan + (Integer)table.getValueAt(i,4);
+        }
+//        for(int)
+        return pendapatan;
+    }
+    
+    public static void StrukPembelian(JTextArea struk, String total){
+        String tampil = "\t\t\t======WELCOME====="+"\n"+"nama pembeli : "+beli.get(0).getNama()+"\n\t\tJenis"+
+                "\tJumlah"+"\tHarga"+"\tTotal Harga";
+        for(int i = 0; i < beli.size(); i++){      
+            System.out.println("Jenis :"+beli.get(i).getJenis());
+            tampil += "\n*"+beli.get(i).getJenis()+"\t\t"+beli.get(i).getJumlah()+
+                    "\t"+beli.get(i).getHarga()+"\t"+beli.get(i).getTotal()+"\n";
+        }        
+         struk.setText(tampil+"\n"+total);
+                
+    } 
+ 
     public void Remove()
     {
         beli.clear();
