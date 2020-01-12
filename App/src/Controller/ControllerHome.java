@@ -52,10 +52,11 @@ public class ControllerHome {
     
     public static void addTbl(JTable tblData, String produk){
 //        Mod, Pod, Liquid FireBase, Liquid Saltnic
-        tblData.removeEditor();
-        tblData.repaint();
-        tblData.revalidate();
+//        tblData.removeEditor();
+//        tblData.repaint();
+//        tblData.revalidate();
         DefaultTableModel view = (DefaultTableModel)tblData.getModel();
+        view.setRowCount(0);
         for(int i = 0; i<6; i++){
             if(produk=="Mod"){
                view.addRow(new Object[]{ControllerProduk.getMod().get(i).getNamaProduk(),
@@ -79,8 +80,8 @@ public class ControllerHome {
                ControllerProduk.getSaltnic().get(i).getJumlahProduk()});  
             }
         }
-        tblData.repaint();
-        tblData.revalidate();
+//        tblData.repaint();
+//        tblData.revalidate();
         
     }
     
@@ -173,10 +174,18 @@ public class ControllerHome {
     
     public static void update(JTable table, int beli)
     {
-        int banyakData = table.getRowCount();
-        for(int i=0; i<banyakData; i++)
+//        int banyakData = table.getRowCount();
+        for(int i=0; i<table.getRowCount(); i++)
         {
             ControllerProduk.updateQty(radioName.get(i), index(radioName.get(i), table, i), beli);
+        }
+    }
+    
+    public static void coba()
+    {
+        for(int i=0; i<radioName.size(); i++)
+        {
+            System.out.println(radioName.get(i));
         }
     }
 //    public static String nameJrSelected(ButtonGroup button, JRadioButton)

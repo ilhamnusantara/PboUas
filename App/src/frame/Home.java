@@ -20,7 +20,7 @@ public class Home extends java.awt.Frame {
     public Home() {
         initComponents();
         ControllerHome.RemovePanel(MainPanel);
-        buttonGroupPembelian.add(Vapor);
+        buttonGroupPembelian.add(Mod);
         buttonGroupPembelian.add(Pod);
         buttonGroupPembelian.add(FreeBase);
         buttonGroupPembelian.add(SaltNic);
@@ -60,7 +60,7 @@ public class Home extends java.awt.Frame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         fieldNamaPembeli = new javax.swing.JTextField();
-        Vapor = new javax.swing.JRadioButton();
+        Mod = new javax.swing.JRadioButton();
         Pod = new javax.swing.JRadioButton();
         Cmb = new javax.swing.JComboBox<>();
         Jumlah = new javax.swing.JSpinner();
@@ -213,10 +213,10 @@ public class Home extends java.awt.Frame {
 
         jLabel10.setText("Jumlah");
 
-        Vapor.setText("Vapor");
-        Vapor.addActionListener(new java.awt.event.ActionListener() {
+        Mod.setText("Mod");
+        Mod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VaporActionPerformed(evt);
+                ModActionPerformed(evt);
             }
         });
 
@@ -280,7 +280,7 @@ public class Home extends java.awt.Frame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelPembelianLayout.createSequentialGroup()
-                        .addComponent(Vapor)
+                        .addComponent(Mod)
                         .addGap(30, 30, 30)
                         .addComponent(Pod)
                         .addGap(28, 28, 28)
@@ -316,7 +316,7 @@ public class Home extends java.awt.Frame {
                 .addGap(18, 18, 18)
                 .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(Vapor)
+                    .addComponent(Mod)
                     .addComponent(Pod)
                     .addComponent(FreeBase)
                     .addComponent(SaltNic))
@@ -432,12 +432,12 @@ public class Home extends java.awt.Frame {
         ControllerHome.AddPanel(PanelHome, PanelPembelian);
     }//GEN-LAST:event_ButtonPembelianActionPerformed
 
-    private void VaporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VaporActionPerformed
+    private void ModActionPerformed(java.awt.event.ActionEvent evt) {                                    
         ControllerHome.AddCmb(Cmb, ControllerProduk.getMod());
 //        ControllerHome.setNamaJrButton(Vapor.getText());
-        Vapor.setActionCommand("Mod");
-    }//GEN-LAST:event_VaporActionPerformed
-
+        Mod.setActionCommand("Mod");
+    }                                     
+    
     private void PodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PodActionPerformed
         ControllerHome. AddCmb(Cmb, ControllerProduk.getPod());
 //        ControllerHome.setNamaJrButton(Pod.getText());
@@ -445,7 +445,7 @@ public class Home extends java.awt.Frame {
     }//GEN-LAST:event_PodActionPerformed
 
     private void BeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliActionPerformed
-        ControllerPembelian.Add(buttonGroupPembelian.getSelection().getActionCommand(), fieldNamaPembeli.getText(), (String)Cmb.getSelectedItem(), (Integer)Jumlah.getValue());
+         ControllerPembelian.Add(buttonGroupPembelian.getSelection().getActionCommand(), fieldNamaPembeli.getText(), (String)Cmb.getSelectedItem(), (Integer)Jumlah.getValue());
         ControllerPembelian.AddTablePembelian(Table);
         ControllerHome.addRadioName(buttonGroupPembelian);
 //        System.out.println(Table.getRowCount());
@@ -460,13 +460,13 @@ public class Home extends java.awt.Frame {
     }//GEN-LAST:event_BeliActionPerformed
 
     private void CetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CetakActionPerformed
-//        JOptionPane.showMessageDialog(null, "test JOpitonPane", "coba", JOptionPane.INFORMATION_MESSAGE,ControllerHome.icon(50, 50) );
+ //        JOptionPane.showMessageDialog(null, "test JOpitonPane", "coba", JOptionPane.INFORMATION_MESSAGE,ControllerHome.icon(50, 50) );
 //        ControllerHome.update(Table, (Integer)Jumlah.getValue());
 //        System.out.println(ControllerHome.index(buttonGroupPembelian.getSelection().getActionCommand(), Table));
 //        for(int i=0; i<Table.getRowCount(); i++)
 //        {
 //            System.out.println(Table.getValueAt(i, 1));
-//        }ArrayIndexOutOfBoundsException
+//        }
         try{
             JOptionPane.showMessageDialog(null, "test JOpitonPane", "coba", JOptionPane.INFORMATION_MESSAGE,ControllerHome.icon(50, 50) );
             ControllerHome.update(Table, (Integer)Jumlah.getValue());
@@ -477,6 +477,7 @@ public class Home extends java.awt.Frame {
                 System.out.println("index di luar jangkauan");
             }
         }
+        System.out.println(Table.getRowCount());
     }//GEN-LAST:event_CetakActionPerformed
 
     private void FreeBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FreeBaseActionPerformed
@@ -496,7 +497,7 @@ public class Home extends java.awt.Frame {
     private void comboProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboProdukActionPerformed
 
           ControllerHome.addTbl(tblData,(String)comboProduk.getSelectedItem());
-        
+        System.out.println((String)comboProduk.getSelectedItem());
     }//GEN-LAST:event_comboProdukActionPerformed
 
     /**
@@ -521,6 +522,7 @@ public class Home extends java.awt.Frame {
     private javax.swing.JLabel IconStore;
     private javax.swing.JSpinner Jumlah;
     private javax.swing.JPanel MainPanel;
+    private javax.swing.JRadioButton Mod;
     private javax.swing.JPanel PanelData;
     private javax.swing.JPanel PanelHome;
     private javax.swing.JPanel PanelPembelian;
@@ -528,7 +530,6 @@ public class Home extends java.awt.Frame {
     private javax.swing.JRadioButton Pod;
     private javax.swing.JRadioButton SaltNic;
     private javax.swing.JTable Table;
-    private javax.swing.JRadioButton Vapor;
     private javax.swing.ButtonGroup buttonGroupPembelian;
     private javax.swing.JComboBox<String> comboProduk;
     private javax.swing.JTextField fieldNamaPembeli;
