@@ -501,8 +501,8 @@ public class Home extends java.awt.Frame {
             ControllerHome.update(Table, (Integer)Jumlah.getValue());
         }catch(IndexOutOfBoundsException e)
         {
-            JOptionPane.showInternalMessageDialog(Cetak, "Data Masiih Kosong", "Warning", JOptionPane.WARNING_MESSAGE);
-            System.out.println("index di luar jangkauan");
+//            JOptionPane.showInternalMessageDialog(Table, "Data Masiih Kosong", "Warning", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Data Masiih Kosong", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_CetakActionPerformed
 
