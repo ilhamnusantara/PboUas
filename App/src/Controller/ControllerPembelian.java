@@ -112,7 +112,7 @@ public class ControllerPembelian {
                 
     } 
  
-    public void Remove()
+    public static void Remove()
     {
         beli.clear();
     }

@@ -74,6 +74,7 @@ public class Home extends java.awt.Frame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         Struk = new javax.swing.JTextArea();
+        Remove = new javax.swing.JButton();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -290,6 +291,14 @@ public class Home extends java.awt.Frame {
         Struk.setRows(5);
         jScrollPane3.setViewportView(Struk);
 
+        Remove.setBackground(new java.awt.Color(245, 2, 8));
+        Remove.setText("Remove All");
+        Remove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelPembelianLayout = new javax.swing.GroupLayout(PanelPembelian);
         PanelPembelian.setLayout(PanelPembelianLayout);
         PanelPembelianLayout.setHorizontalGroup(
@@ -326,12 +335,16 @@ public class Home extends java.awt.Frame {
                     .addGroup(PanelPembelianLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Cetak)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(PanelPembelianLayout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(pembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(PanelPembelianLayout.createSequentialGroup()
+                                    .addComponent(Remove)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Cetak))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
@@ -369,7 +382,9 @@ public class Home extends java.awt.Frame {
                             .addComponent(pembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addGap(18, 18, 18)
-                        .addComponent(Cetak)
+                        .addGroup(PanelPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Cetak)
+                            .addComponent(Remove))
                         .addGap(30, 30, 30))
                     .addGroup(PanelPembelianLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -526,6 +541,11 @@ public class Home extends java.awt.Frame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pembayaranActionPerformed
 
+    private void RemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveActionPerformed
+        ControllerHome.removeAll(Table);
+        pembayaran.setText(null);
+    }//GEN-LAST:event_RemoveActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -554,6 +574,7 @@ public class Home extends java.awt.Frame {
     private javax.swing.JPanel PanelPembelian;
     private javax.swing.JPanel PanelProfil;
     private javax.swing.JRadioButton Pod;
+    private javax.swing.JButton Remove;
     private javax.swing.JRadioButton SaltNic;
     private javax.swing.JTextArea Struk;
     private javax.swing.JTable Table;
