@@ -183,51 +183,17 @@ public class ControllerHome {
     
     public static void update(JTable table, int beli)
     {
-//        int banyakData = table.getRowCount();
-//        System.out.println("ini loop i ke- "+table.getRowCount());
         for(int i=0; i<table.getRowCount(); i++)
         {
             System.out.println("update");
             ControllerProduk.updateQty(radioName.get(i), index(radioName.get(i), table, i), beli);
-//            System.out.println(radioName.get(i));
-            
-//            System.out.println(index(radioName.get(i), table, i));
         }
     }
     
-    public static void coba()
+    public static void removeAll(JTable table)
     {
-        for(int i=0; i<radioName.size(); i++)
-        {
-            System.out.println(radioName.get(i));
-        }
+        ControllerPembelian.Remove();
+        DefaultTableModel view = (DefaultTableModel)table.getModel();
+        view.setRowCount(0);
     }
-//    public static String nameJrSelected(ButtonGroup button, JRadioButton)
-//    {
-//        String name = null;
-//        return name;
-//    } 
-
-//    public static void remove(ButtonGroup group)
-//    {
-//        switch (group.getSelection().getActionCommand()) {
-//            case "Mod":
-//                break;
-//            case "Pod":
-//                break;
-//            case "FreeBase":
-//                break;
-//            case "SaltNic":
-//                break;
-//            default:
-//                break;
-//        }
-//    }
-//    
-//    public static String index()
-//    {
-//        
-//    }
-
-
 }
