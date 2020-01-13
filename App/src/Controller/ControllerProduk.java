@@ -112,8 +112,8 @@ public class ControllerProduk {
             case "SaltNic":
                 saltnic.set(index, new SaltNic(saltnic.get(index).getNamaProduk(), "saltnic", saltnic.get(index).getVolume(), freebase.get(index).getHarga(), saltnic.get(index).getJumlahProduk()-Qty));
                 break;
-            default:
-                break;
+//            default:
+//                break;
         }
     }
 //    public static void setSaltNic(int index, int jual)

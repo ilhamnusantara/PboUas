@@ -123,14 +123,17 @@ public class ControllerHome {
         int Index = -1;
         for(int i=awal; i<table.getRowCount(); i++)
          {
+             System.out.println("index ke- "+i);
             String jenis = (String)table.getValueAt(i, 1);
             switch (nameButton) {
                 case "Mod":
                     for(int x=0; x<ControllerProduk.getMod().size(); x++)
                     {
-                        if(jenis.equals(ControllerProduk.getMod().get(i).getNamaProduk()))
+                        if(jenis.equals(ControllerProduk.getMod().get(x).getNamaProduk()))
                         {
                             Index = x;
+                            System.out.println("mod");
+                            System.out.println("=========");
                             break;
                         }
                     }
@@ -138,9 +141,11 @@ public class ControllerHome {
                 case "Pod":
                     for(int x=0; x<ControllerProduk.getPod().size(); x++)
                     {
-                        if(jenis.equals(ControllerProduk.getPod().get(i).getNamaProduk()))
+                        if(jenis.equals(ControllerProduk.getPod().get(x).getNamaProduk()))
                         {
                             Index = x;
+                            System.out.println("pod");
+                            System.out.println("=========");
                             break;
                         }
                     }
@@ -148,9 +153,11 @@ public class ControllerHome {
                 case "FreeBase":
                     for(int x=0; x<ControllerProduk.getFreebase().size(); x++)
                     {
-                        if(jenis.equals(ControllerProduk.getFreebase().get(i).getNamaProduk()))
+                        if(jenis.equals(ControllerProduk.getFreebase().get(x).getNamaProduk()))
                         {
                             Index = x;
+                            System.out.println("free");
+                            System.out.println("=========");
                             break;
                         }
                     }
@@ -158,9 +165,11 @@ public class ControllerHome {
                 case "SaltNic":
                     for(int x=0; x<ControllerProduk.getSaltnic().size(); x++)
                     {
-                        if(jenis.equals(ControllerProduk.getSaltnic().get(i).getNamaProduk()))
+                        if(jenis.equals(ControllerProduk.getSaltnic().get(x).getNamaProduk()))
                         {
                             Index = x;
+                            System.out.println("salt");
+                            System.out.println("=========");
                             break;
                         }
                     }
@@ -175,9 +184,14 @@ public class ControllerHome {
     public static void update(JTable table, int beli)
     {
 //        int banyakData = table.getRowCount();
+//        System.out.println("ini loop i ke- "+table.getRowCount());
         for(int i=0; i<table.getRowCount(); i++)
         {
+            System.out.println("update");
             ControllerProduk.updateQty(radioName.get(i), index(radioName.get(i), table, i), beli);
+//            System.out.println(radioName.get(i));
+            
+//            System.out.println(index(radioName.get(i), table, i));
         }
     }
     

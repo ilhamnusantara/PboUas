@@ -70,8 +70,8 @@ public class ControllerPembelian {
                         break;
                     }
                 }   break;
-            default:
-                break;
+//            default:
+//                break;
         }
         return harga;
     }

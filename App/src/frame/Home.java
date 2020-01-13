@@ -259,7 +259,15 @@ public class Home extends java.awt.Frame {
             new String [] {
                 "Nama", "Jenis Poduk", "Jumlah", "Harga @", "Harga Total"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(Table);
 
         Cetak.setBackground(new java.awt.Color(53, 204, 118));
@@ -466,63 +474,45 @@ public class Home extends java.awt.Frame {
 
     private void ModActionPerformed(java.awt.event.ActionEvent evt) {                                    
         ControllerHome.AddCmb(Cmb, ControllerProduk.getMod());
-//        ControllerHome.setNamaJrButton(Vapor.getText());
         Mod.setActionCommand("Mod");
     }                                     
     
     private void PodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PodActionPerformed
         ControllerHome. AddCmb(Cmb, ControllerProduk.getPod());
-//        ControllerHome.setNamaJrButton(Pod.getText());
         Pod.setActionCommand("Pod");
     }//GEN-LAST:event_PodActionPerformed
 
     private void BeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliActionPerformed
-        ControllerPembelian.Add(buttonGroupPembelian.getSelection().getActionCommand(), fieldNamaPembeli.getText(), (String)Cmb.getSelectedItem(), (Integer)Jumlah.getValue());
-        ControllerPembelian.AddTablePembelian(Table, pembayaran);
-        ControllerHome.addRadioName(buttonGroupPembelian);
-//        System.out.println(Table.getRowCount());
-//        System.out.println(Table.getValueAt(0, 1));
-//        for(int i=0; i<ControllerProduk.getMod().size(); i++)
-//        {
-//            System.out.println(ControllerProduk.getMod().get(i).getNamaProduk());
-//        }
-//        System.out.println(buttonGroupPembelian.getSelection().getActionCommand());
-//        System.out.println(Table.getValueAt(0, 1));
-        
+        if((Integer)Jumlah.getValue()>0)
+        {
+            ControllerPembelian.Add(buttonGroupPembelian.getSelection().getActionCommand(), fieldNamaPembeli.getText(), (String)Cmb.getSelectedItem(), (Integer)Jumlah.getValue());
+            ControllerPembelian.AddTablePembelian(Table, pembayaran);
+            ControllerHome.addRadioName(buttonGroupPembelian);            
+        }
+//        ControllerPembelian.Add(buttonGroupPembelian.getSelection().getActionCommand(), fieldNamaPembeli.getText(), (String)Cmb.getSelectedItem(), (Integer)Jumlah.getValue());
+//        ControllerPembelian.AddTablePembelian(Table, pembayaran);
+//        ControllerHome.addRadioName(buttonGroupPembelian);
     }//GEN-LAST:event_BeliActionPerformed
 
 
     private void CetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CetakActionPerformed
-   //        JOptionPane.showMessageDialog(null, "test JOpitonPane", "coba", JOptionPane.INFORMATION_MESSAGE,ControllerHome.icon(50, 50) );
-//        ControllerHome.update(Table, (Integer)Jumlah.getValue());
-//        System.out.println(ControllerHome.index(buttonGroupPembelian.getSelection().getActionCommand(), Table));
-//        for(int i=0; i<Table.getRowCount(); i++)
-//        {
-//            System.out.println(Table.getValueAt(i, 1));
-//        }
         try{
             ControllerPembelian.StrukPembelian(Struk,pembayaran.getText());
             ControllerHome.update(Table, (Integer)Jumlah.getValue());
-        }catch(ArrayIndexOutOfBoundsException e)
+        }catch(IndexOutOfBoundsException e)
         {
-            if(e.equals(-1))
-            {
-                System.out.println("index di luar jangkauan");
-            }
+            JOptionPane.showInternalMessageDialog(Cetak, "Data Masiih Kosong", "Warning", JOptionPane.WARNING_MESSAGE);
+            System.out.println("index di luar jangkauan");
         }
     }//GEN-LAST:event_CetakActionPerformed
 
     private void FreeBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FreeBaseActionPerformed
-        // TODO add your handling code here:
         ControllerHome.AddCmb(Cmb, ControllerProduk.getFreebase());
-//        ControllerHome.setNamaJrButton(FreeBase.getText());
         FreeBase.setActionCommand("FreeBase");
     }//GEN-LAST:event_FreeBaseActionPerformed
 
     private void SaltNicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaltNicActionPerformed
-        // TODO add your handling code here:
         ControllerHome.AddCmb(Cmb, ControllerProduk.getSaltnic());
-//        ControllerHome.setNamaJrButton(SaltNic.getText());
         SaltNic.setActionCommand("SaltNic");
     }//GEN-LAST:event_SaltNicActionPerformed
 
